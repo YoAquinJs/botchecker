@@ -1,4 +1,4 @@
-const { botId, guildId } = require('../util/config');
+const { targetId, guildId } = require('../util/config');
 const { client } = require('../client/client');
 const { error } = require('../util/logger');
 const { offlineHelper } = require('./offlineHandeler');
@@ -9,10 +9,10 @@ let bot = null;
 async function start() {
   // ADD USER TO CACHE
   const guild = await client.guilds.cache.find((guild) => guild.id === guildId);
-  await guild.members.fetch(botId);
+  await guild.members.fetch(targetId);
 
   // CONFIG BOT
-  bot = guild.members.cache.find((m) => m.id === botId);
+  bot = guild.members.cache.find((m) => m.id === targetId);
 
   // FIRST TIME
   statusChecker();
