@@ -5,11 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon index.js",
-    "setupContainer": "mkdir -p container/data container/dist",
-    "installContainer": "git clone https://github.com/YoAquinJs/Economy-Bot container/dist && cp -p container/data/*.* dist | true",
-    "updateContainer": "cd container/dist && git pull",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "setupContainer": "mkdir -p container/data container/dist",
+    "installContainer": "git clone -b \"$([[ -n \"$1\" ]] && echo \"$1\" || echo \"main\")\" https://github.com/YoAquinJs/Economy-Bot.git container/dist && yarn dataContainer",
+    "dataContainer": "cp -p container/data/*.* container/dist/ | true && cp -p container/data/* container/dist/ | true",
+    "updateContainer": "(cd container/dist && git pull) && yarn dataContainer",
+    "clearContainer": "rm -rf container/*/ && yarn setupContainer"
   },
   "dependencies": {
     "@discordjs/builders": "^0.6.0",

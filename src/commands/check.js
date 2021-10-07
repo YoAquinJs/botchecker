@@ -7,7 +7,8 @@ module.exports = {
     .setName('check')
     .setDescription("Check bot 's status"),
   async execute(interaction) {
-    statusChecker();
-    await interaction.reply('checker.check()');
+    await interaction.reply(
+      'Bot is ' + statusChecker() ? 'Online!' : 'Offline: Starting Hosting Protocol'
+    );
   }
 };
