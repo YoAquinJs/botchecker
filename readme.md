@@ -5,7 +5,7 @@
 ### Configuration
 Create `.env` or `config.json` file
 
-####_Json_
+#### _Json_
 ```json
 {
   "token": "bot_token",
@@ -16,7 +16,7 @@ Create `.env` or `config.json` file
 }
 
 ```
-####_Env_
+#### _Env_
 ```dotenv
 token="bot_token"
 botId="bot_client_id"
