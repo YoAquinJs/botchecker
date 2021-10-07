@@ -1,0 +1,32 @@
+{
+  "name": "botchecker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js",
+    "setupContainer": "mkdir -p container/data container/dist",
+    "installContainer": "git clone https://github.com/YoAquinJs/Economy-Bot container/dist && cp -p container/data/*.* dist | true",
+    "updateContainer": "cd container/dist && git pull",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "moment": "^2.29.1",
+    "zx": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.4",
+    "nodemon": "^2.0.13",
+    "prettier": "^2.4.1"
+  }
+}
