@@ -2,6 +2,7 @@ const {
   targetChannelId,
   guildId,
   interval,
+  checkInterval,
   devId,
   targetId,
   reactionEmoji
@@ -34,7 +35,7 @@ async function start() {
 async function statusChecker() {
   if (!channel) return null;
   const message = await channel.send('/awake');
-  const time = 1000 * 30;
+  const time = checkInterval;
   message
     .awaitReactions({ filter, max: 1, time: time, errors: ['time'] })
     .then(() => {
